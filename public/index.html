@@ -4,17 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Nexus</title>
 </head>
 
 <body>
-    <p>Supports only Firefox browser.</p>
-    <video autoplay></video>
-    <div id="buttons">
-        <button id="qvga">320x240</button>
-        <button id="vga">640x480</button>
-        <button id="hd">1280x960</button>
-    </div>
+    <p><strong>Supports only Firefox browser.</strong></p>
+    <table width="100%">
+        <tr>
+            <td><video id="local-video" autoplay></video></td>
+            <td><video id="remote-video" autoplay></video></td>
+        </tr>
+        <tr align="center">
+            <td>
+                <!-- Starts the application -->
+                <button id="start-button">Start</button>
+                
+                <!-- Initiates a call -->
+                <button id="call-button">Call</button>
+                
+                <!-- Ends a call -->
+                <button id="hang-button">Hang</button>
+            </td>
+            <td><i>remote user perspective</i></td>
+        </tr>
+    </table>
+
+
     <p id="dimensions"></p>
     <script src="js/client.js"></script>
 </body>
