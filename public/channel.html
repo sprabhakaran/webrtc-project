@@ -9,11 +9,11 @@
 </head>
 
 <body>
-    <p><strong>Supports only Firefox browser.</strong> <a href="channel.html">Chat</a></p>
+    <p><strong>Supports only Firefox browser.</strong> <a href="index.html">Video</a> </p>
     <table width="100%">
         <tr>
-            <td><video id="local-video" autoplay></video></td>
-            <td><video id="remote-video" autoplay></video></td>
+            <td><textarea id="channel-send" cols="30" rows="5" ></textarea></td>
+            <td><textarea id="channel-receive" cols="30" rows="5" ></textarea></td>
         </tr>
         <tr align="center">
             <td>
@@ -21,10 +21,10 @@
                 <button id="start-button">Start</button>
                 
                 <!-- Initiates a call -->
-                <button id="call-button">Call</button>
+                <button id="send-button">Send</button>
                 
                 <!-- Ends a call -->
-                <button id="hang-button">Hang</button>
+                <button id="stop-button">Stop</button>
             </td>
             <td><i>remote user perspective</i></td>
         </tr>
@@ -32,7 +32,6 @@
 
 
     <p id="dimensions"></p>
-    <script src="js/client.js"></script>
     <script src="js/channel.js"></script>
 </body>
 
