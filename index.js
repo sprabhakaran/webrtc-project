@@ -1,13 +1,9 @@
 
-// Required Modules
 var express = require('express');
 var http = require('http');
 var logger = require('morgan');
-//var cookieParser = require('cookie-parser');
-//var bodyParser = require('body-parser');
 var io = require('socket.io')(http);
 
-// Create Express App
 var app = express();
 app.set('port', 8181);
 
@@ -20,49 +16,46 @@ var server = http.createServer(app);
 io.listen(server);
 
 io.sockets.on('connection', function (socket) {
-
-  socket.on('messageChange', function (data) {
-    console.log(data);
-    socket.emit('receive', data.message.split('').reverse().join(''));
-  });
-
+  
   socket.on('message', function (message) {
-    console.log('S --> Got message: ', message);
-    socket.broadcast.to(message.channel).emit('message', message.message);
+    log('S --> got message: ', message);
+    
+    console.log("message & channel", message, message.channel)
+
+    /*hack:: harcoded name - sending broadcast to alpha*/
+    socket.broadcast.to("alpha").emit('message', message);
+    // socket.broadcast.to(message.channel).emit('message', message);
+
+    console.log("after message broadcast")
   });
 
-  socket.on('create or join', function (channel) {
-    console.log("create or join invoked: ", channel)
+  socket.on('create or join', function (room) {
     var numClients = io.engine.clientsCount;
-    // var numClients = io.sockets.clients(channel).length;
-    console.log("active client count: ", numClients)
+    log('S --> Room ' + room + ' has ' + numClients + ' client(s)');
+    log('S --> Request to create or join room', room);
+  
+    // First client joining...
     if (numClients == 1) {
-      socket.join(channel);
-      socket.emit('created', channel);
+      socket.join(room);
+      socket.emit('created', room);
     } else if (numClients == 2) {
-      io.sockets.in(channel).emit('remotePeerJoining', channel);
-      socket.join(channel);
-      socket.broadcast.to(channel).emit('broadcast: joined', 'S --> broadcast(): client ' + socket.id + ' joined channel ' + channel);
-    } else {
-      console.log("Channel full!");
-      socket.emit('full', channel);
+      io.sockets.in(room).emit('join', room);
+      socket.join(room);
+      socket.emit('joined', room);
+    } else { 
+      // max two clients
+      socket.emit('full', room);
     }
   });
 
-  socket.on('response', function (response) {
-    console.log('S --> Got response: ', response);
-    socket.broadcast.to(response.channel).emit('response', response.message);
-  });
+  function log() {
+    var array = [];
+    for (var i = 0; i < arguments.length; i++) {
+      array.push(arguments[i]);
+    }
+    socket.emit('log', array);
+  }
 
-  socket.on('Bye', function (channel) {
-    socket.broadcast.to(channel).emit('Bye');
-    socket.disconnect();
-  });
-
-  socket.on('Ack', function () {
-    console.log('Got an Ack!');
-    socket.disconnect();
-  });
 });
 
 server.listen(app.get('port'), function () {

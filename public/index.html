@@ -4,36 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
     <title>Nexus</title>
+    <style>
+        td,
+        th {
+            border: 2px solid black;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
-    <p><strong>Supports only Firefox browser.</strong> <a href="channel.html">Chat</a></p>
-    <p><strong>Supports only Firefox browser.</strong> <a href="app.html">App</a></p>
-    <table width="100%">
-        <tr>
-            <td><video id="local-video" autoplay></video></td>
-            <td><video id="remote-video" autoplay></video></td>
-        </tr>
-        <tr align="center">
-            <td>
-                <!-- Starts the application -->
-                <button id="start-button">Start</button>
-                
-                <!-- Initiates a call -->
-                <button id="call-button">Call</button>
-                
-                <!-- Ends a call -->
-                <button id="hang-button">Hang</button>
-            </td>
-            <td><i>remote user perspective</i></td>
-        </tr>
-    </table>
+    <div><strong>Only Firefox Is Supported.</strong></div>
+    <div id="main-div">
 
+        <table width=100%>
+            <tr>
+                <th>Local View</th>
+                <th>Remote View</th>
+            </tr>
+            <tr>
+                <td>
+                    <video id="local-video" autoplay></video>
+                </td>
+                <td>
+                    <video id="remote-video" autoplay></video>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <textarea rows="4" cols="60" id="data-channel-send" disabled placeholder="will be enabled once the data channel is up...">
+                </textarea>
+                </td>
+                <td>
+                    <textarea rows="4" cols="60" id="data-channel-recieve" disabled> </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="send-button" disabled>Send</button>
+                </td>
+                <td> <i>remote user prespective</i>  </td>
+            </tr>
+        </table>
 
-    <p id="dimensions"></p>
-    <script src="js/client.js"></script>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/static/webrtc-adapter/out/adapter.js"></script>
+    <script src="js/nexus.js"></script>
 </body>
 
 </html>
