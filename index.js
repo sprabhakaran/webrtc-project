@@ -20,37 +20,39 @@ var server = http.createServer(app);
 io.listen(server);
 
 io.sockets.on('connection', function (socket) {
+
   socket.on('messageChange', function (data) {
     console.log(data);
-    socket.emit('receive', data.message.split('').reverse().join('') );
+    socket.emit('receive', data.message.split('').reverse().join(''));
   });
 
   socket.on('message', function (message) {
-    log('S --> Got message: ', message);
-     socket.broadcast.to(message.channel).emit('message', message.message);
-   });
+    console.log('S --> Got message: ', message);
+    socket.broadcast.to(message.channel).emit('message', message.message);
+  });
 
-  socket.on('create', function (channel) {
-     var numClients = io.sockets.clients(channel).length;
-     console.log('numclients = ' + numClients);
+  socket.on('create or join', function (channel) {
+    console.log("create or join invoked: ", channel)
+    var numClients = io.engine.clientsCount;
+    // var numClients = io.sockets.clients(channel).length;
+    console.log("active client count: ", numClients)
+    if (numClients == 1) {
+      socket.join(channel);
+      socket.emit('created', channel);
+    } else if (numClients == 2) {
+      io.sockets.in(channel).emit('remotePeerJoining', channel);
+      socket.join(channel);
+      socket.broadcast.to(channel).emit('broadcast: joined', 'S --> broadcast(): client ' + socket.id + ' joined channel ' + channel);
+    } else {
+      console.log("Channel full!");
+      socket.emit('full', channel);
+    }
+  });
 
-     if (numClients == 0) {
-         socket.join(channel);
-         socket.emit('created', channel);
-       } else if (numClients == 1) {
-           io.sockets.in(channel).emit('remotePeerJoining', channel);
-           socket.join(channel);
-           socket.broadcast.to(channel).emit('broadcast: joined', 'S --> broadcast(): client ' + socket.id + ' joined channel ' + channel);
-         } else {
-             console.log("Channel full!");
-             socket.emit('full', channel);
-           }
-   });
-
-   socket.on('response', function (response) {
-       log('S --> Got response: ', response);
-       socket.broadcast.to(response.channel).emit('response', response.message);
-     });
+  socket.on('response', function (response) {
+    console.log('S --> Got response: ', response);
+    socket.broadcast.to(response.channel).emit('response', response.message);
+  });
 
   socket.on('Bye', function (channel) {
     socket.broadcast.to(channel).emit('Bye');
@@ -63,7 +65,7 @@ io.sockets.on('connection', function (socket) {
   });
 });
 
-server.listen(app.get('port'), function(){
+server.listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
 });
 

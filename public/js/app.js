@@ -1,4 +1,4 @@
-div = document.getElementById('scratchPad');
+div = document.getElementById('scratch-pad');
 
 var socket = io.connect('http://localhost:8181');
 
@@ -40,6 +40,7 @@ socket.on('broadcast: joined', function (msg) {
     div.insertAdjacentHTML('beforeEnd', '<p style="color:red">' + msg + '</p>');
     console.log('Broadcast message from server: ' + msg);
     var myMessage = prompt('Insert message to be sent to your peer:', "");
+    console.log("## prompt message to be sent::", myMessage)
     socket.emit('message', { channel: channel, message: myMessage });
 });
 
