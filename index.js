@@ -3,17 +3,26 @@ var express = require('express');
 var http = require('http');
 var logger = require('morgan');
 var io = require('socket.io')(http);
-
+var bodyParser = require('body-parser');
 var app = express();
+
+require("./route.v1")(app)
 app.set('port', 8181);
 
 app.use(logger('dev'));
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use(express.static('public'));
 app.use("/static", express.static('node_modules'));
 
 var server = http.createServer(app);
 io.listen(server);
+
+// app.get("/test", function(req, resp){
+//   resp.json({'result': 'success'});
+// });
 
 io.sockets.on('connection', function (socket) {
   
