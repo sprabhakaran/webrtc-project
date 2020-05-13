@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Nexus</title>
+</head>
+
+<body>
+    <p><strong>Supports only Firefox browser.</strong> <a href="index.html">Video</a> </p>
+    <table width="100%">
+        <tr>
+            <td><textarea id="channel-send" cols="30" rows="5" ></textarea></td>
+            <td><textarea id="channel-receive" cols="30" rows="5" ></textarea></td>
+        </tr>
+        <tr align="center">
+            <td>
+                <!-- Starts the application -->
+                <button id="start-button">Start</button>
+                
+                <!-- Initiates a call -->
+                <button id="send-button">Send</button>
+                
+                <!-- Ends a call -->
+                <button id="stop-button">Stop</button>
+            </td>
+            <td><i>remote user perspective</i></td>
+        </tr>
+    </table>
+
+
+    <p id="dimensions"></p>
+    <script src="js/channel.js"></script>
+</body>
+
+</html>

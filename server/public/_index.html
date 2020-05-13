@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Nexus</title>
+</head>
+
+<body>
+    <p><strong>Supports only Firefox browser.</strong> <a href="channel.html">Chat</a></p>
+    <p><strong>Supports only Firefox browser.</strong> <a href="app.html">App</a></p>
+    <table width="100%">
+        <tr>
+            <td><video id="local-video" autoplay></video></td>
+            <td><video id="remote-video" autoplay></video></td>
+        </tr>
+        <tr align="center">
+            <td>
+                <!-- Starts the application -->
+                <button id="start-button">Start</button>
+                
+                <!-- Initiates a call -->
+                <button id="call-button">Call</button>
+                
+                <!-- Ends a call -->
+                <button id="hang-button">Hang</button>
+            </td>
+            <td><i>remote user perspective</i></td>
+        </tr>
+    </table>
+
+
+    <p id="dimensions"></p>
+    <script src="js/client.js"></script>
+</body>
+
+</html>

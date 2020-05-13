@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus</title>
+    <style>
+        td,
+        th {
+            border: 2px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div><strong>Only Firefox Is Supported.</strong></div>
+    <div id="main-div">
+
+        <table width=100%>
+            <tr>
+                <th>Local View</th>
+                <th>Remote View</th>
+            </tr>
+            <tr>
+                <td>
+                    <video id="local-video" autoplay></video>
+                </td>
+                <td>
+                    <video id="remote-video" autoplay></video>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <textarea rows="4" cols="60" id="data-channel-send" disabled placeholder="will be enabled once the data channel is up...">
+                </textarea>
+                </td>
+                <td>
+                    <textarea rows="4" cols="60" id="data-channel-recieve" disabled> </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="send-button" disabled>Send</button>
+                </td>
+                <td> <i>remote user prespective</i>  </td>
+            </tr>
+        </table>
+
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/static/webrtc-adapter/out/adapter.js"></script>
+    <script src="js/nexus.js"></script>
+</body>
+
+</html>
