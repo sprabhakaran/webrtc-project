@@ -7,7 +7,7 @@ class ViewArea extends React.Component{
     render(){
         return (
             <div className="view-area">
-                <ViewAreaTop />
+                <ViewAreaTop selectedContact={this.props.selectedContact} />
                 <ViewAreaBottom />
             </div>
         )

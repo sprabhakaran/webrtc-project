@@ -1,13 +1,11 @@
 import React from "react"
 
-class ContactsPaneFooter extends React.Component{
-    render(){
-        return (
-            <div className="contacts-footer">
-                ContactsPaneFooter
-            </div>
-        )
-    }
+function ContactsPaneFooter(props) {
+    return (
+        <div className="contacts-footer">
+            {props.count} Available Contacts 
+        </div>
+    )
 }
 
 export default ContactsPaneFooter

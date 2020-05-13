@@ -1,16 +1,28 @@
 import React from "react"
 
 import SearchBar from "./SearchBar"
-import ContactsList from "./ContactsList"
+import Contact from "./Contact"
 import ContactsPaneFooter from "./ContactsPaneFooter"
 
-class ContactsPane extends React.Component{
-    render(){
+class ContactsPane extends React.Component {
+    render() {
+     
+        let contacts = this.props.contacts.map((c) => {
+            return <Contact
+                key={c.id}
+                contact={c}
+                selectedContactID = {this.props.selectedContactID}
+                updateSelectedContact={this.props.updateSelectedContact}
+            />
+        })
+
         return (
             <div className="contacts-pane">
                 <SearchBar />
-                <ContactsList />
-                <ContactsPaneFooter />
+                <div>
+                    {contacts}
+                </div>
+                <ContactsPaneFooter count={this.props.contacts.length} />
             </div>
         )
     }

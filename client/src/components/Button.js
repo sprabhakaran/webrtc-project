@@ -19,7 +19,7 @@ class Button extends React.Component {
 
         return (
             <div>
-                <button className="button">{buttonContents}</button>
+                <button className="button" onClick={()=>{this.props.handler("x", "y")}}>{buttonContents}</button>
             </div>
         )
     }
