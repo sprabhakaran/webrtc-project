@@ -1,155 +1,206 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
-body{
-  font-family: 'Roboto', sans-serif;
-  --light-blue: #007EA7;
-  --dark-blue: #003459;
+body {
+    font-family: 'Roboto', sans-serif;
+    --light-blue: #007EA7;
+    --dark-blue: #003459;
+    margin: auto;
+    max-width: 1366px;
 }
 
-.app{
-  display: grid;
-  grid-template-columns: 25% 75%;
+.app {
+    display: grid;
+    grid-template-columns: 25% 75%;
 }
 
-
-.contacts-pane{
-  display: grid;
-  grid-template-rows: 50px 800px 30px;
-  
-  background-color: var(--light-blue);
-  color: white;
-  border: 2px solid black;
+.contacts-pane {
+    display: grid;
+    grid-template-rows: 50px 800px 30px;
+    background-color: var(--light-blue);
+    color: white;
+    border: 2px solid black;
 }
 
-
-.search-bar{
-  background-color: var(--dark-blue);
-  color: black;
-  border-bottom: 2px solid black;
+.search-bar {
+    background-color: var(--dark-blue);
+    color: black;
+    border-bottom: 2px solid black;
 }
 
-.search-input{
- font-size: 18px;
- width: 300px;
- height: 30px;
+.search-input {
+    font-size: 18px;
+    width: 300px;
+    height: 30px;
 }
 
-.contact{
-  display: grid;
-  align-items: center;
-  grid-template-columns: 20% 40% 40%;
-
-  background-color: white;
-  color: black;
-  padding: 5px;
-  margin: 5px;
-  border: 2px solid black;
+.contacts-list {
+    overflow: auto;
 }
 
-.contact:hover{
-  display: grid;
-  align-items: center;
-  grid-template-columns: 20% 40% 40%;
-
-  background-color:  var(--dark-blue);
-  color: white;
-  padding: 5px;
-  margin: 5px;
-  border: 2px solid black;
+.contact {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 20% 40% 40%;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    margin: 5px;
+    border: 2px solid black;
 }
 
-.contact-selected{
-  display: grid;
-  align-items: center;
-  grid-template-columns: 20% 40% 40%;
-
-  background-color: var(--dark-blue);
-  color: white;
-  padding: 5px;
-  margin: 5px;
-  border: 2px solid white;
+.contact:hover {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 20% 40% 40%;
+    background-color: var(--dark-blue);
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    border: 2px solid black;
 }
 
-
-.contact img{
-  border: 2px solid black;
+.contact-selected {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 20% 40% 40%;
+    background-color: var(--dark-blue);
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    border: 2px solid white;
 }
 
-.contact-info{
-  font-size: 14px;
-  justify-self: right;
-  font-style: italic;
+.contact img {
+    border: 2px solid black;
 }
 
-.contacts-footer{
-  justify-self: center;
-  align-self: baseline;
-  font-size: 14px;
-  font-style: italic;
+.contact-info {
+    font-size: 14px;
+    justify-self: right;
+    font-style: italic;
 }
 
-
-.view-area{
-  display: grid;
-  grid-template-rows: 400px 400px;
+.contacts-footer {
+    justify-self: center;
+    align-self: baseline;
+    font-size: 14px;
+    font-style: italic;
 }
 
-.view-area-top{
-  display: grid;
-  grid-template-columns: 40% 40% 20%;
+.view-area {
+	display: grid;
+	grid-template-rows: 200px auto 80px;
 }
 
-.view-area-top{
-  display: grid;
-  grid-template-columns: 40% 40% 20%;
+.view-area-top {
+	display: grid;
+	grid-template-columns: 40% 40% 20%;
 }
 
-.profile-picture-box{
-  justify-self: center;
-  align-self: center;
+.view-area-top {
+    display: grid;
+    grid-template-columns: 40% 40% 20%;
 }
 
-.profile-picture-box img{
-border: 2px solid black;
+.profile-picture-box {
+    justify-self: center;
+    align-self: center;
 }
 
+.profile-picture-box img {
+    border: 2px solid black;
+}
 
-.profile-contents-box{
-  justify-self: left;
-  align-self: start;
+.profile-contents-box {
+    justify-self: left;
+    align-self: start;
 }
 
 .headline-1 {
 	font-size: 36px;
-	margin: 60px 0px 5px 0px;
+	margin-top: 20px;
 }
 
 .headline-2 {
-	font-size: 24px;
-	margin: 5px 0px 5px 0px;
+    font-size: 24px;
+    margin: 5px 0px 5px 0px;
 }
 
-.top-right-box{
-  justify-self: right;
-  align-self: start;
+.top-right-box {
+    justify-self: right;
+    align-self: start;
 }
 
 .button {
-	margin: 5px 0px 5px 0px;
-	padding: 5px;
-  width: 200px;
-  background-color:  var(--light-blue);
-  color: white;
-  border: 2px solid black;
-  font-size: 16px;
+    margin: 5px 0px 5px 0px;
+    padding: 5px;
+    width: 200px;
+    background-color: var(--light-blue);
+    color: white;
+    border: 2px solid black;
+    font-size: 16px;
 }
 
 .button:hover {
-	margin: 5px 0px 5px 0px;
-	padding: 5px;
-  width: 200px;
-  background-color:  var(--dark-blue);
-  color: white;
-  border: 2px solid var(--light-blue);
-  font-size: 16px;
+    margin: 5px 0px 5px 0px;
+    padding: 5px;
+    width: 200px;
+    background-color: var(--dark-blue);
+    color: white;
+    border: 2px solid var(--light-blue);
+    font-size: 16px;
+}
+
+.view-area-body {
+	width: 60%;
+	height: 600px;
+	margin: auto;
+	overflow: auto;
+}
+.day-break{
+    text-align: center;
+    font-size: 12px;
+    font-style: italic;
+    margin: 20px 0px 20px 0px;
+}
+.conv-ts{
+    font-size: 10px;
+    font-style: italic;
+}
+.local-conv{
+   margin: 20px 0px 20px 0px;
+}
+
+.remote-conv{
+    margin-top: 5px;
+    margin: 20px 0px 20px 0px;
+    text-align: right;
+ }
+ 
+
+.view-area-footer{
+    width: 60%;
+    margin: auto;
+    border: 2px solid black;
+    
+    display: grid;
+    grid-template-columns: 55% 15% 15% 15%;
+}
+
+.view-area-footer > textarea{
+    resize: none;
+    border: none;
+}
+
+.view-area-footer > button{
+    height: 58px;
+    background-color: white;
+    border: none;
+    font-weight: bold;
+}
+
+.view-area-footer > button:hover{
+    height: 58px;
+    background-color:  var(--light-blue);
+    color: white;
+    border: none;
 }
