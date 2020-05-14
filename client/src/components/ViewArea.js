@@ -1,14 +1,18 @@
 import React from "react"
 
 import ViewAreaTop from "./ViewAreaTop"
-import ViewAreaBottom from "./ViewAreaBottom"
+import ViewAreaBody from "./ViewAreaBody"
+import ViewAreaFooter from "./ViewAreaFooter"
 
-class ViewArea extends React.Component{
-    render(){
+
+
+class ViewArea extends React.Component {
+    render() {
         return (
             <div className="view-area">
                 <ViewAreaTop selectedContact={this.props.selectedContact} />
-                <ViewAreaBottom />
+                <ViewAreaBody />
+                <ViewAreaFooter />
             </div>
         )
     }
