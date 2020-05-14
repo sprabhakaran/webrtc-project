@@ -1,0 +1,9 @@
+{
+    "db_conf": {
+        "user": "postgres",
+        "host": "localhost",
+        "database": "webrtc_project",
+        "password": "postgres",
+        "port": 5432
+    }
+}

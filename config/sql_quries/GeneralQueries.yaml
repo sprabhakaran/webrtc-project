@@ -1,0 +1,10 @@
+---
+
+Queries:
+  - Account:
+    - GetUser: |
+      select * from Account 
+      where username=${username:string} and password=${password:string}
+    - CreateUser: |
+      insert into Account (user_id, username, password, email, created_time, is_active)
+      values (${user_id:string})

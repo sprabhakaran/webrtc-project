@@ -1,4 +1,8 @@
 
 module.exports = function(app) {
-    app.get("/register", require("./app/login").register)
+
+    var login = require("./app/login");
+    app.post("/register", login.register)
+    app.get("/login", login.login)
+
 }

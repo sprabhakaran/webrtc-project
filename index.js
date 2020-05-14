@@ -4,25 +4,23 @@ var http = require('http');
 var logger = require('morgan');
 var io = require('socket.io')(http);
 var bodyParser = require('body-parser');
+var methodOverride = require('method-override')
 var app = express();
 
-require("./route.v1")(app)
 app.set('port', 8181);
 
 app.use(logger('dev'));
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(methodOverride())
 
 app.use(express.static('public'));
 app.use("/static", express.static('node_modules'));
 
+require("./route.v1")(app)
+
 var server = http.createServer(app);
 io.listen(server);
-
-// app.get("/test", function(req, resp){
-//   resp.json({'result': 'success'});
-// });
 
 io.sockets.on('connection', function (socket) {
   
@@ -67,9 +65,15 @@ io.sockets.on('connection', function (socket) {
 
 });
 
+
 server.listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+app.use(function(err, req, resp, next){
+  
+  return next(err)
+})
 
 module.exports = app;
 
