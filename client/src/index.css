@@ -174,9 +174,15 @@ body {
     border: 2px solid black;
  }
 
-.view-area-body {
+.chat-window {
 	width: 60%;
 	height: 600px;
+	margin: auto;
+	overflow: auto;
+}
+.chat-window-short {
+	width: 60%;
+	height: 200px;
 	margin: auto;
 	overflow: auto;
 }
@@ -200,8 +206,6 @@ body {
     text-align: right;
  }
 
-
-
 .view-area-footer{
     width: 60%;
     margin: auto;
@@ -211,21 +215,58 @@ body {
     grid-template-columns: 55% 15% 15% 15%;
 }
 
+.view-area-footer-in-call{
+    width: 60%;
+    margin: auto;
+    border: 2px solid black;
+    
+    display: grid;
+    grid-template-columns: 70% 15% 15%;
+}
+
 .view-area-footer > textarea{
     resize: none;
     border: none;
 }
 
-.view-area-footer > button{
+.view-area-footer > button, .view-area-footer-in-call > button{
     height: 58px;
     background-color: white;
     border: none;
     font-weight: bold;
 }
 
-.view-area-footer > button:hover{
+
+.view-area-footer > button:hover, .view-area-footer-in-call > button:hover{
     height: 58px;
     background-color:  var(--light-blue);
     color: white;
     border: none;
+}
+
+
+#hang-button{
+    height: 58px;
+    background-color:  var(--select-read);
+    color: white;
+    border: none;
+}
+
+
+/* -------------------- */
+
+.view-area-with-video-and-chat{
+    display: grid;
+    grid-template-rows: 60% 40%;
+}
+.call-bar{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-content: center;
+    justify-items: center;
+}
+
+.call-bar > video{
+   border: 2px solid black;
+   width: 450px;
 }
