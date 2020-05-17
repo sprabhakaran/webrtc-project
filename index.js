@@ -4,7 +4,6 @@ var http = require('http');
 var logger = require('morgan');
 var io = require('socket.io')(http);
 var bodyParser = require('body-parser');
-var methodOverride = require('method-override')
 var app = express();
 
 app.set('port', 8181);
@@ -12,7 +11,6 @@ app.set('port', 8181);
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(methodOverride())
 
 app.use(express.static('public'));
 app.use("/static", express.static('node_modules'));
