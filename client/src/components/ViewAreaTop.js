@@ -1,5 +1,10 @@
 import React from "react"
 
+import { faUserTimes } from "@fortawesome/free-solid-svg-icons";
+import { faUserCog } from "@fortawesome/free-solid-svg-icons";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 class ViewAreaTop extends React.Component {
     constructor() {
@@ -20,9 +25,14 @@ class ViewAreaTop extends React.Component {
                     <div className="headline-1">{this.props.selectedContact.name}</div>
                     <div className="headline-2">{this.props.selectedContact.email}</div>
                     <div>{this.props.selectedContact.info}</div>
-                    <div>remove connection</div>
+                    <div className="profile-buttons">
+                        <button id="remove-cnx-btn"> <FontAwesomeIcon icon={faUserTimes} /> Remove Connection</button>
+                    </div>
                 </div>
-                <div className="top-right-box"> Settings  Logout </div>
+                <div className="top-right-box">
+                    <button> <FontAwesomeIcon icon={faUserCog} /> Settings</button>
+                    <button> <FontAwesomeIcon icon={faSignOutAlt} /> Logout </button>
+                </div>
             </div>
         )
     }
