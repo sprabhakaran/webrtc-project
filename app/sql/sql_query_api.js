@@ -10,8 +10,6 @@ module.exports = class SQLQueryAPI {
 
     static executeQuery(queryString, params, callbackFn){
 
-        console.trace("---------- ", callbackFn)
-
         const client = new Client(config.db_conf)
         client.connect(err => {
             if(err){

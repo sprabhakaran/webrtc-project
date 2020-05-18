@@ -3,7 +3,7 @@ module.exports = function(app) {
 
     var login = require("./app/login");
     app.post("/register", login.register)
-    app.get("/login", login.login)
+    app.post("/login", login.login)
 
     app.use("/contacts", require("./app/router/contacts"))
     
