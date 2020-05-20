@@ -6,6 +6,10 @@ var io = require('socket.io')(http);
 var bodyParser = require('body-parser');
 var app = express();
 
+var cors = require('cors')
+
+app.use(cors())
+
 app.set('port', 8181);
 
 app.use(logger('dev'));

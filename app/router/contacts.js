@@ -6,14 +6,14 @@ router.get("/", (req, resp) => {
     var users = [
         {
             user_id: 1001,
-            display_name: "Vignesh",
+            display_name: "Abel",
             photo: "<blob>",
             status: "Online",
             conv_id: 10001
         },
         {
             user_id: 1002,
-            display_name: "Bharath",
+            display_name: "Bob",
             photo: "<blob>",
             status: "Offline"
         }
