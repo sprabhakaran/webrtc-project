@@ -1,5 +1,9 @@
 import React from "react"
 
+
+import {Link} from "react-router-dom"
+
+
 class SingupPage extends React.Component {
 
     render() {
@@ -21,7 +25,7 @@ class SingupPage extends React.Component {
                                 <button>Sign up</button>
                             </div>
                             <div className="right-align">
-                                <a href="#">back to login</a>
+                                <Link to="/"> Back to login </Link>
                             </div>
                         </form>
                     </div>             

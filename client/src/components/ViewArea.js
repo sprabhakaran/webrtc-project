@@ -6,7 +6,6 @@ import ViewAreaFooter from "./ViewAreaFooter"
 
 class ViewArea extends React.Component {
 
-
     constructor() {
         super()
         this.state = {

@@ -1,5 +1,7 @@
 import React from "react"
 
+import {Link} from "react-router-dom"
+
 class LoginPage extends React.Component {
 
     render() {
@@ -16,13 +18,13 @@ class LoginPage extends React.Component {
                                 <input type="password" placeholder="Password"></input>
                             </div>
                             <div className="right-align">
-                                <a href="#">forgot password?</a>
+                                <Link to="/forgot-password"> Forgot password </Link>
                             </div>
                             <div className="right-align">
                                 <button>Sign In</button>
                             </div>
                             <div className="right-align">
-                                <a href="#">create account</a>
+                            <Link to="/sign-up" > Create account </Link>
                             </div>
                         </form>
                     </div>
